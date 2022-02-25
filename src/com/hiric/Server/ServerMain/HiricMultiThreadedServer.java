@@ -2,14 +2,17 @@ package com.hiric.Server.ServerMain;
 
 //packages
 import com.hiric.Server.DbController.PropertyVariables;
-import com.hiric.Server.DbController.OnlineDBConnection;
 
-import java.sql.Connection;
+
+/**
+@author : DABAGIRE Valens
+@description: Hiric server entry point to accept multiple clients
+* */
 
 public class HiricMultiThreadedServer {
 
     public void startServer() throws Exception{
-        String url = "jdbc:mysql://remotemysql.com:3306/ZKZ7qI2OW3?" + "\"autoReconnect=true&useSSL=false\"";
+        String url = "jdbc:mysql://remotemysql.com:3306/ZKZ7qI2OW3?"+"autoReconnect=true&useSSL=false";
         String user = "ZKZ7qI2OW3";
         String password = "pWgWkTztns";
 
@@ -19,10 +22,8 @@ public class HiricMultiThreadedServer {
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.print("Accept multiple clients");
+        HiricMultiThreadedServer h = new HiricMultiThreadedServer();
 
-        Connection db =  new OnlineDBConnection().getConnection();
-        OnlineDBConnection ond = new OnlineDBConnection();
-        ond.checkDbConnection(db);
+        System.out.print("Accept multiple clients");
     }
 }
