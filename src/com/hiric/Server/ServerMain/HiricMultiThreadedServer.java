@@ -2,6 +2,9 @@ package com.hiric.Server.ServerMain;
 
 //packages
 import com.hiric.Server.DbController.PropertyVariables;
+import com.hiric.Server.DbController.OnlineDBConnection;
+
+import java.sql.Connection;
 
 public class HiricMultiThreadedServer {
 
@@ -17,5 +20,9 @@ public class HiricMultiThreadedServer {
 
     public static void main(String[] args) throws Exception {
         System.out.print("Accept multiple clients");
+
+        Connection db =  new OnlineDBConnection().getConnection();
+        OnlineDBConnection ond = new OnlineDBConnection();
+        ond.checkDbConnection(db);
     }
 }
