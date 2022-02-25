@@ -5,7 +5,7 @@ import java.util.Properties;
 
 /**
 *@author : DABAGIRE Valens - Project Manager
-*@description: database configuration variables
+*@description: : database configuration variables
 */
 
 public class PropertyVariables {
@@ -13,16 +13,15 @@ public class PropertyVariables {
     private String databaseUsername;
     private String databasePassword;
     private String databasePort;
-    private Long port;
+    private long port;
 
-    public PropertyVariables(String dbUrl, String dbUsername, String dbPassword, String dbPort, Long port){
+    public PropertyVariables(String dbUrl, String dbUsername, String dbPassword, String dbPort, long port){
         this.databaseUrl = dbUrl;
         this.databaseUsername = dbUsername;
         this.databasePassword = dbPassword;
         this.databasePort = dbPort;
         this.port = port;
     }
-
     public String getDatabaseUrl() {
         return databaseUrl;
     }
@@ -55,11 +54,11 @@ public class PropertyVariables {
         this.databasePort = databasePort;
     }
 
-    public Long getPort() {
+    public long getPort() {
         return port;
     }
 
-    public void setPort(Long port) {
+    public void setPort(long port) {
         this.port = port;
     }
 
@@ -69,7 +68,7 @@ public class PropertyVariables {
         properties.setProperty("dbUsername", getDatabaseUsername());
         properties.setProperty("dbPassword", getDatabasePassword());
         properties.setProperty("dbPort", getDatabasePort());
-        properties.setProperty("serverPort", getPort().toString());
+        properties.setProperty("serverPort", getPort()+"");
 
         properties.store(new FileWriter("dbConfig.properties"), null);
     }
