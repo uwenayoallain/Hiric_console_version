@@ -2,18 +2,18 @@ package com.hiric.Server.Model;
 import java.io.*;
 
 public class UserModel implements  Serializable{
-    private Integer userId;
+    private int userId;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
-    private Integer telephone;
+    private int telephone;
     private UserRole role;
     private String accountType;
     public UserModel(){
 
     }
-    public UserModel(Integer userId , String firstName , String lastName , String email , String password ,String accountType, Integer telephone, UserRole role){
+    public UserModel(int userId , String firstName , String lastName , String email , String password ,String accountType, int telephone, UserRole role){
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,11 +24,11 @@ public class UserModel implements  Serializable{
         this.role = role;
     }
 
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -64,11 +64,11 @@ public class UserModel implements  Serializable{
         this.password = password;
     }
 
-    public Integer getTelephone() {
+    public int getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(Integer telephone) {
+    public void setTelephone(int telephone) {
         this.telephone = telephone;
     }
 
