@@ -21,7 +21,7 @@ public class JobPosting {
     public void createTableJobPosts() {
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement stmt = conn.createStatement();) {
-            String sql = "CREATE TABLE JobPosts " +
+            String sql = "CREATE TABLE JobPosts IF NOT EXISTS " +
                     "(id INTEGER not NULL auto_increment, " +
                     " jobTitle VARCHAR(255), " +
                     " jobDescription VARCHAR(255), " +
