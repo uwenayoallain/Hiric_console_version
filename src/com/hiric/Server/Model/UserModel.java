@@ -19,7 +19,7 @@ public class UserModel implements  Serializable{
         this.email = email;
         this.password = password;
         this.telephone = telephone;
-
     }
+
 
 }
