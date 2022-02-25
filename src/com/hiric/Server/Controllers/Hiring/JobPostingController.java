@@ -40,24 +40,42 @@ public class JobPostingController {
         }
     }
 
-    static final String QUERY = "SELECT id, jobTitle, jobDescription, jobRequirements, location, startDate, duration, salary FROM JobPosts";
-    public void viewJobPosts() {
+    public String viewJobPosts() {
+        final String selectAllJobPosts = "SELECT id, jobTitle, jobDescription, jobRequirements, location, startDate, duration, salary FROM JobPosts";
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(QUERY);) {
-            while(rs.next()){
-                //Display values
-                System.out.print(", Title : " + rs.getString("jobTile"));
-                System.out.print(", Desc: " + rs.getString("jobDescription"));
-                System.out.println(", Requirements: " + rs.getString("jobRequirements"));
-                System.out.println(", Location: " + rs.getString("location"));
-                System.out.println(", startDate: " + rs.getString("startDate"));
-                System.out.println(", duration: " + rs.getString("duration"));
-                System.out.println(", salary: " + rs.getString("salary"));
-             }
+        ResultSet rs = stmt.executeQuery(selectAllJobPosts);) {
+                //Store values in the jobPosts objects and return it.
+                String[] jobPosts = {
+                    int id: rs.getString("id"),
+                    String title: rs.getString("jobTitle"),
+                    String desc: rs.getString("jobDescription"),
+                    String requirements: rs.getString("jobRequirements"),
+                    String location: rs.getString("location"),
+                    Date startDate: rs.getString("startDate"),
+                    String duration: rs.getString("duration"),
+                    int salary: rs.getInt("salary"),
+                };
+                return jobPosts;
         }
         catch(SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void viewJobPost(int id) {
+        final String selectSingleJobPost = "SELECT id, jobTitle, jobDescription, jobRequirements, location, startDate, duration, salary FROM JobPosts";
+        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(selectSingleJobPost);) {
+
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateJobPost() {
+
     }
 }
