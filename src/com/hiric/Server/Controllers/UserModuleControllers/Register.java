@@ -1,3 +1,8 @@
+/**
+ *@author : UWENAYO Alain Pacifique - Contributer & Maintainer
+ *@description: : This Controller class is used to register a new user
+ */
+
 package com.hiric.Server.Controllers.UserModuleControllers;
 
 import org.mindrot.jbcrypt.BCrypt;
