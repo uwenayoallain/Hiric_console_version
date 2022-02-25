@@ -3,12 +3,11 @@ package com.hiric.Client;
 import java.io.IOException;
 
 public class Main {
-
-    public static void WelcomeToHiric() {
-
+    void WelcomeToHiric() {
+        // TODO welcome to hiric
     }
 
-    public static void main(String [] args) throws IOException {
+    public static void main(String [] args) {
         System.out.println("Welcome to hiric!");
     }
 
