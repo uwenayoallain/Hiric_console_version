@@ -9,5 +9,5 @@ public enum MessageTypes {
     ACTION,
     SUCCESS,
     ERROR,
-    PROGRESS
+    WARNING
 }
