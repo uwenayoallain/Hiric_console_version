@@ -11,7 +11,6 @@ public class Register {
     public void  registerUser(Connection connection,String email,String password, String firstname ,String lastname ,String telephone, String accountType,String role) throws Exception{
         if(checkIfUserExist(connection,email)){
             System.out.println("Email is already used Please try using another email");
-            System.exit(0);
         }
         String securePassword = hashPassword(password);
         boolean matched = BCrypt.checkpw(password,securePassword);
