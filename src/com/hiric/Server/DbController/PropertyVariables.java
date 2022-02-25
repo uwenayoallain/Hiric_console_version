@@ -5,7 +5,7 @@ import java.util.Properties;
 
 /**
 *@author : DABAGIRE Valens - Project Manager
-*@description: : database configuration variables
+*@description: database configuration variables
 */
 
 public class PropertyVariables {
@@ -68,7 +68,7 @@ public class PropertyVariables {
         properties.setProperty("dbUrl", getDatabaseUrl());
         properties.setProperty("dbUsername", getDatabaseUsername());
         properties.setProperty("dbPassword", getDatabasePassword());
-        properties.setProperty("dbPort", getDatabasePort().toString());
+        properties.setProperty("dbPort", getDatabasePort());
         properties.setProperty("serverPort", getPort().toString());
 
         properties.store(new FileWriter("dbConfig.properties"), null);
