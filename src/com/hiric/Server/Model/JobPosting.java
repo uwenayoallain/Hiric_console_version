@@ -5,12 +5,15 @@ import java.util.Date;
 public class JobPosting {
     private String jobTitle;
     private String jobDescription;
-    private String jobRequirements;
+    private String[] jobRequirements;
     private String location;
     private Date startDate;
-    private String duration;
+    private int duration;
     private int salary;
 
+    public JobPosting(String jobTitle, String jobDescription, String[] jobRequirements, String location, Date startDate, int duration) {
+
+    }
     public String getJobTitle() {
         return jobTitle;
     }
@@ -27,11 +30,11 @@ public class JobPosting {
         this.jobDescription = jobDescription;
     }
 
-    public String getJobRequirements() {
+    public String[] getJobRequirements() {
         return jobRequirements;
     }
 
-    public void setJobRequirements(String jobRequirements) {
+    public void setJobRequirements(String[] jobRequirements) {
         this.jobRequirements = jobRequirements;
     }
 
@@ -51,11 +54,11 @@ public class JobPosting {
         this.startDate = startDate;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
