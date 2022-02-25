@@ -9,15 +9,17 @@ public class UserModel implements  Serializable{
     private String password;
     private Integer telephone;
     private UserRole role;
+    private String accountType;
     public UserModel(){
 
     }
-    public UserModel(Integer userId , String firstName , String lastName , String email , String password , Integer telephone, UserRole role){
+    public UserModel(Integer userId , String firstName , String lastName , String email , String password ,String accountType, Integer telephone, UserRole role){
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.accountType = accountType;
         this.telephone = telephone;
         this.role = role;
     }
@@ -72,6 +74,14 @@ public class UserModel implements  Serializable{
 
     public UserRole getRole() {
         return role;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 
     public void setRole(UserRole role) {
