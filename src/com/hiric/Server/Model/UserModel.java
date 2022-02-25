@@ -8,17 +8,18 @@ public class UserModel implements  Serializable{
     private String email;
     private String password;
     private Integer telephone;
-
+    private UserRole role;
     public UserModel(){
 
     }
-    public UserModel(Integer userId , String firstName , String lastName , String email , String password , Integer telephone){
+    public UserModel(Integer userId , String firstName , String lastName , String email , String password , Integer telephone, UserRole role){
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.telephone = telephone;
+        this.role = role;
     }
 
     public Integer getUserId() {
@@ -67,5 +68,13 @@ public class UserModel implements  Serializable{
 
     public void setTelephone(Integer telephone) {
         this.telephone = telephone;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
     }
 }
