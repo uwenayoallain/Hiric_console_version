@@ -1,6 +1,10 @@
 package com.hiric.Server.Model;
 
 import java.util.Date;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class JobPosting {
     private String jobTitle;
@@ -10,6 +14,29 @@ public class JobPosting {
     private Date startDate;
     private String duration;
     private int salary;
+    static final String DB_URL = "https://remotemysql.com/phpmyadmin/index.php?db=ZKZ7qI2OW3";
+    static final String USER = "ZKZ7qI2OW3";
+    static final String PASS = "pWgWkTztns";
+
+    public void createTableJobPosts() {
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+                Statement stmt = conn.createStatement();) {
+            String sql = "CREATE TABLE JobPosts " +
+                    "(id INTEGER not NULL auto_increment, " +
+                    " jobTitle VARCHAR(255), " +
+                    " jobDescription VARCHAR(255), " +
+                    " jobRequirements text, " +
+                    " location VARCHAR(255), " +
+                    " startDate date, " +
+                    " duration time, " +
+                    " salary int, " +
+                    " PRIMARY KEY ( id ))";
+
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public String getJobTitle() {
         return jobTitle;

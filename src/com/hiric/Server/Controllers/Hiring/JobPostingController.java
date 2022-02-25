@@ -22,23 +22,16 @@ public class JobPostingController {
 
     public void createJobPost(String jobTitle, String jobDescription, String jobRequirements, String location,
             Date startDate, String duration, int salary) {
-
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement stmt = conn.createStatement();) {
-            String sql = "CREATE TABLE JobPosts " +
-                    "(id INTEGER not NULL auto_increment, " +
-                    " jobTitle VARCHAR(255), " +
-                    " jobDescription VARCHAR(255), " +
-                    " jobRequirements text, " +
-                    " location VARCHAR(255), " +
-                    " startDate date, " +
-                    " duration time, " +
-                    " salary int, " +
-                    " PRIMARY KEY ( id ))";
 
+            String sql = "INSERT INTO JobPosts " +
+                    " (jobTitle, jobDescription, jobRequirements, location, startDate, duration, salary)" +
+                    "VALUES" +
+                    "(" + jobTitle + ", " + jobDescription + "," + jobRequirements + "," + location + "," + startDate
+                    + "," + duration + "," + salary + ")";
             stmt.executeUpdate(sql);
-        }
-        catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
